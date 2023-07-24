@@ -16,10 +16,6 @@ while len(usa_states) < 50:
 
     if answer_state == "Exit":
         missing_states = [state for state in data_states if state not in usa_states]
-        # missing_states = []
-        # for state in data_states:
-        #     if state not in usa_states:
-        #         missing_states.append(state)
         new_data = pandas.DataFrame(missing_states)
         new_data.to_csv("states_to_learn.csv")
         break
@@ -31,11 +27,3 @@ while len(usa_states) < 50:
         state_data = data[data.state == answer_state]
         t.goto(int(state_data.x), int(state_data.y))
         t.write(answer_state)
-
-# How to get the coordinates with click on screen
-# def get_mouse_click_coor(x, y):
-#     print(x, y)
-#
-#
-# turtle.onscreenclick(get_mouse_click_coor)
-# turtle.mainloop()
